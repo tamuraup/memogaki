@@ -2,9 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/test.html",
+      "/posts/cudacheck.html",
       "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/index.html",
+      "/posts/test.html"
     ]
   }
 ]
