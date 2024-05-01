@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "雑なメモ置き場",
     "section": "",
-    "text": "Quarto Basics\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 28, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Basics\n\n\n\n\n\n\n\n\n\n\n\nMay 22, 2021\n\n\nNorah Jones\n\n\n\n\n\n\nNo matching items"
+    "text": "私の chokudai search template\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Basics\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 28, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto Basics\n\n\n\n\n\n\n\n\n\n\n\nMay 22, 2021\n\n\nNorah Jones\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -61,5 +61,12 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/2024-05-01-chokudaisearch.html",
+    "href": "posts/2024-05-01-chokudaisearch.html",
+    "title": "私の chokudai search template",
+    "section": "",
+    "text": "#[derive(PartialEq, Eq, Clone)]\nstruct State {\n    score: i64,\n}\nimpl State {\n    fn new(real_score: i64, len: u8, ops: Vec&lt;(usize, usize, usize)&gt;) -&gt; Self {\n        todo!()\n    }\n}\n\nimpl Ord for State {\n    fn cmp(&self, other: &Self) -&gt; Ordering {\n        self.score.cmp(&other.score)\n    }\n}\n\nimpl PartialOrd for State {\n    fn partial_cmp(&self, other: &Self) -&gt; Option&lt;Ordering&gt; {\n        Some(self.cmp(other))\n    }\n}\n\nfn simple_chokudai_search(inp: &Input, timer: &Timer) {\n    let mut beams: Vec&lt;LimitedMaximumHeap&lt;State&gt;&gt; = vec![LimitedMaximumHeap::new(500); 51];\n\n    let mut iter = 0;\n    let mut best = 0;\n    beams[0].push(State::new());\n\n    'outer: loop {\n        iter += 1;\n        if timer.t() &gt;= 1.0 {\n            break;\n        }\n\n        for depth in 0..beams.len() {\n            if depth % 10 == 0 && timer.t() &gt;= 1.0 {\n                break 'outer;\n            }\n            if beams[depth].is_empty() {\n                continue;\n            }\n            // ここで複数回 pop すると 幅 &gt; 1 ってこと？\n            let state = beams[depth].pop().unwrap();\n            // TODO: なにか処理\n        }\n    }\n}"
   }
 ]

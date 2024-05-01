@@ -1,0 +1,12 @@
+{
+  "hash": "7b04ba8da9ba3813a0caa1daff1aea45",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"私の chokudai search\"\n---\n\n```{Rust}\n#[derive(PartialEq, Eq, Clone)]\nstruct State {\n    score: i64,\n}\nimpl State {\n    fn new(real_score: i64, len: u8, ops: Vec<(usize, usize, usize)>) -> Self {\n        todo!()\n    }\n}\n\nimpl Ord for State {\n    fn cmp(&self, other: &Self) -> Ordering {\n        self.score.cmp(&other.score)\n    }\n}\n\nimpl PartialOrd for State {\n    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {\n        Some(self.cmp(other))\n    }\n}\n\nfn simple_chokudai_search(inp: &Input, timer: &Timer) {\n    let mut beams: Vec<LimitedMaximumHeap<State>> = vec![LimitedMaximumHeap::new(500); 51];\n\n    let mut iter = 0;\n    let mut best = 0;\n    beams[0].push(State::new());\n\n    'outer: loop {\n        iter += 1;\n        if timer.t() >= 1.0 {\n            break;\n        }\n\n        for depth in 0..beams.len() {\n            if depth % 10 == 0 && timer.t() >= 1.0 {\n                break 'outer;\n            }\n            if beams[depth].is_empty() {\n                continue;\n            }\n            // ここで複数回 pop すると 幅 > 1 ってこと？\n            let state = beams[depth].pop().unwrap();\n            // TODO: なにか処理\n        }\n    }\n}\n```\n\n",
+    "supporting": [
+      "2024-05-01-chokudaisearch_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
