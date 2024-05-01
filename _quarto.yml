@@ -7,15 +7,21 @@ website:
   navbar:
     right:
       - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+      # - icon: github
+      #   href: https://github.com/
+      # - icon: twitter
+      #   href: https://twitter.com
+  search: 
+    location: navbar
+    type: overlay
+
 format:
   html:
     theme: minty
     css: styles.css
-
+    date-format: "YYYY 年 MM 月 DD 日" 
 
 execute:
   freeze: auto
+
+copyright: "Copyright tamuraup. 2024. All Rights Reserved"

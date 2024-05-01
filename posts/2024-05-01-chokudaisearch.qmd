@@ -1,8 +1,10 @@
 ---
-title: "私の chokudai search template"
+title: "chokudai search template"
 date: "2024-05-01"
 categories: [ahc]
 ---
+
+chokudai search の練習をしたのでメモ。
 
 ```rust
 #[derive(PartialEq, Eq, Clone)]

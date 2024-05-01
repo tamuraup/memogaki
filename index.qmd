@@ -1,5 +1,6 @@
 ---
 title: "雑なメモ置き場"
+description: "メモ書きなので間違っていることも書いているのでしょう"
 listing:
   contents: posts
   sort: "date desc"
@@ -10,5 +11,3 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-
-
