@@ -1,5 +1,5 @@
 ---
-title: "quarto_memo"
+title: "雑なメモ置き場"
 listing:
   contents: posts
   sort: "date desc"
