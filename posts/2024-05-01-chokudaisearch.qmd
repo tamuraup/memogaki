@@ -10,7 +10,7 @@ struct State {
     score: i64,
 }
 impl State {
-    fn new(real_score: i64, len: u8, ops: Vec<(usize, usize, usize)>) -> Self {
+    fn new() -> Self {
         todo!()
     }
 }
