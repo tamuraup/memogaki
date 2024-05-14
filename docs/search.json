@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "雑なメモ置き場",
     "section": "",
-    "text": "AHC032 解説放送メモ\n\n\n\n\n\n\n\n\n\n\n\n2024 年 05 月 03 日\n\n\n\n\n\n\n\n\n\n\n\n\nchokudai search template\n\n\n\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\n\nNo matching items\n\nCopyrightCopyright tamuraup. 2024. All Rights Reserved"
+    "text": "numpy, pandas.DataFrame で多数決をとる\n\n\n\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 12 日\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch 学習結果の再現性確保\n\n\n\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 11 日\n\n\n\n\n\n\n\n\n\n\n\n\nBCEWithLogitsLoss の確認\n\n\n\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 09 日\n\n\n\n\n\n\n\n\n\n\n\n\n画像グリッド描画サンプル\n\n\n\n\n\n\nnotebook\n\n\nimage\n\n\n\n\n\n\n\n\n\n2024 年 05 月 04 日\n\n\n\n\n\n\n\n\n\n\n\n\nAHC032 解説放送メモ\n\n\n\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 05 月 03 日\n\n\n\n\n\n\n\n\n\n\n\n\nchokudai search template\n\n\n\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\n\nNo matching items\n\nCopyrightCopyright tamuraup. 2024. All Rights Reserved"
   },
   {
     "objectID": "about.html",
@@ -96,5 +96,40 @@
     "title": "AHC032 解説放送メモ",
     "section": "高速化",
     "text": "高速化\n\n不要なスタンプをできるだけ減らす工夫をしている\nスタンプを右上の値で分類し、右上マスを良い値にできるスタンプの候補を絞り込めるようにするなど\n\n\nK 分木の話\nwata さん実装の Searcher がそれ。\nやることは「3マス揃え」で話していることとほとんど同じ。\nMOD を K 個の区間に分けて、スタンプの 1 マス目の値で K 分割、2 マス目の値で K 分割 …\nのように分割する木の深さが i マス目の分割となる K 分木を作り、良いスタンプの探索を高速にできるようにする。"
+  },
+  {
+    "objectID": "posts/2024-05-12_tasuketsu.html",
+    "href": "posts/2024-05-12_tasuketsu.html",
+    "title": "numpy, pandas.DataFrame で多数決をとる",
+    "section": "",
+    "text": "多数決を取ったメモ。 今回は行ごとの最頻値を求める。\nscipy.stats.mode を使うと楽。\nscipy.stats.mode — SciPy v1.13.0 Manual\nimport numpy as np\nimport scipy.stats as stats\na=np.array([[1,1,2],[3,4,5],[1,1,1]])\na\n\narray([[1, 1, 2],\n       [3, 4, 5],\n       [1, 1, 1]])\nb=np.array([[1,2,3],[3,4,1],[1,1,2]])\nb\n\narray([[1, 2, 3],\n       [3, 4, 1],\n       [1, 1, 2]])\nc=np.hstack((a,b))\nc\n\narray([[1, 1, 2, 1, 2, 3],\n       [3, 4, 5, 3, 4, 1],\n       [1, 1, 1, 1, 1, 2]])\nstats.mode(a,axis=1,keepdims=True)[0]\n\narray([[1],\n       [3],\n       [1]])\nstats.mode(b,axis=1,keepdims=True)[0]\n\narray([[1],\n       [1],\n       [1]])\nstats.mode(c,axis=1,keepdims=True)[0]\n\narray([[1],\n       [3],\n       [1]])"
+  },
+  {
+    "objectID": "posts/2024-05-12_tasuketsu.html#pandas.dataframe",
+    "href": "posts/2024-05-12_tasuketsu.html#pandas.dataframe",
+    "title": "numpy, pandas.DataFrame で多数決をとる",
+    "section": "pandas.DataFrame",
+    "text": "pandas.DataFrame\nDataFrame にも mode 関数がある。\npandas.DataFrame.mode — pandas 2.2.2 ドキュメント\n\nimport pandas as pd\n\n\ndf=pd.DataFrame(a)\ndf\n\n\n\n\n\n\n\n\n\n0\n1\n2\n\n\n\n\n0\n1\n1\n2\n\n\n1\n3\n4\n5\n\n\n2\n1\n1\n1\n\n\n\n\n\n\n\n\n\ndf.mode(axis=1)\n\n\n\n\n\n\n\n\n\n0\n1\n2\n\n\n\n\n0\n1.0\nNaN\nNaN\n\n\n1\n3.0\n4.0\n5.0\n\n\n2\n1.0\nNaN\nNaN\n\n\n\n\n\n\n\n\n最頻値が複数あればその分の列が返るっぽい？ (ドキュメントに書いてなさそう)\n\ndf=pd.DataFrame(c)\ndf\n\n\n\n\n\n\n\n\n\n0\n1\n2\n3\n4\n5\n\n\n\n\n0\n1\n1\n2\n1\n2\n3\n\n\n1\n3\n4\n5\n3\n4\n1\n\n\n2\n1\n1\n1\n1\n1\n2\n\n\n\n\n\n\n\n\n\ndf.mode(axis=1)\n\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\n1.0\nNaN\n\n\n1\n3.0\n4.0\n\n\n2\n1.0\nNaN"
+  },
+  {
+    "objectID": "posts/2024-05-11-seed_everything.html",
+    "href": "posts/2024-05-11-seed_everything.html",
+    "title": "PyTorch 学習結果の再現性確保",
+    "section": "",
+    "text": "Pytorch Lightning で学習したとき、seed_everything で乱数固定すれば、同じ学習結果が得られると思っていたが実際にはそうでなかった。\n調べてみると、\nの設定も必要そうだった。Reproducibility — PyTorch 2.3 documentation\nこの 2 つを設定することで、内部で使用されるアルゴリズムを固定化できるとのこと。\n上記参考に以下の関数を呼ぶことで、同じ学習結果が得られるようになった。"
+  },
+  {
+    "objectID": "posts/2024-05-11-seed_everything.html#その他参考",
+    "href": "posts/2024-05-11-seed_everything.html#その他参考",
+    "title": "PyTorch 学習結果の再現性確保",
+    "section": "その他参考",
+    "text": "その他参考\n\nhttps://qiita.com/north_redwing/items/1e153139125d37829d2d#cuda-convolution-benchmarking"
+  },
+  {
+    "objectID": "posts/2024-05-09_bcewithlogitsloss_check.html",
+    "href": "posts/2024-05-09_bcewithlogitsloss_check.html",
+    "title": "BCEWithLogitsLoss の確認",
+    "section": "",
+    "text": "BCEWithLogitsLoss はマルチラベル分類のロスに使えることを知った\nBCEWithLogitsLoss\n\nimport numpy as np\nimport torch\n\n\ntarget = torch.ones([1, 10], dtype=torch.float32)  # 10 classes, batch size = 1\n# A prediction (logit)\noutput = torch.cat([torch.full([1, 5], 1.5),torch.full([1,5],1.0)],dim=1)\ncriterion = torch.nn.BCEWithLogitsLoss(reduction='none')\ncriterion(output, target)  # -log(sigmoid(output value))\n\ntensor([[0.2014, 0.2014, 0.2014, 0.2014, 0.2014, 0.3133, 0.3133, 0.3133, 0.3133,\n         0.3133]])\n\n\n\nsigmoid=torch.sigmoid(torch.Tensor([1.0,1.5]))\ntorch.log(sigmoid)\n\ntensor([-0.3133, -0.2014])\n\n\npos_weight は 各クラスで Positive/Negative のデータ数が不均衡な場合に設定すると良いらしい\n\n\n\nCopyrightCopyright tamuraup. 2024. All Rights Reserved"
   }
 ]
