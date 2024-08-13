@@ -20,9 +20,9 @@ format:
     theme: minty
     css: styles.css
     date-format: "YYYY 年 MM 月 DD 日"
-    #include-in-header:
-    #      - text: |
-    #          <meta name="google-site-verification" content="cZPHfzzSIV8ZFPkWH0DArBxWrk-Ulb5g_1572IGYSy8" />
+    include-in-header:
+          - text: |
+              <meta name="google-site-verification" content="cZPHfzzSIV8ZFPkWH0DArBxWrk-Ulb5g_1572IGYSy8" />
 
 execute:
   freeze: auto
