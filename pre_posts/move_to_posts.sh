@@ -7,17 +7,12 @@ foo () {
     WORK_DIR=$(cd $(dirname $0); pwd)
     pushd $WORK_DIR &> /dev/null
 
-    files=$(ls *.${1} 2> /dev/null)
-
-    if [ -n "$files" ]; then
-        for filename in "$files"
-        do
-            echo "move $filename"
-            dt=$(date -r $filename +"%Y-%m-%d")
-            mv "${filename}" "../posts/${dt}_${filename}";
-        done;
-
-    fi
+    for filename in $(ls *.${1} 2> /dev/null)
+    do
+        dt=$(date -r ${filename} "+%Y-%m-%d")
+        echo ">>${filename}_${dt}"
+        mv "${filename}" "../posts/${dt}_${filename}";
+    done;
 }
 
 foo 'ipynb'
