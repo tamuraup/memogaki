@@ -1,6 +1,7 @@
 ---
 title: "雑なメモ置き場"
-description: "メモ書きなので間違っていることも書いているのでしょう"
+description: "メモ書きなので間違っていることもあります(保険)"
+
 listing:
   contents: posts
   sort: "date desc"
