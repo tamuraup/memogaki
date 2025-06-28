@@ -5,8 +5,8 @@
       "/posts/2025-03-25-image-rot/image_rot.html",
       "/posts/2025-02-05_make_lag_data.html",
       "/posts/2024-09-17_gitlab-ci-wasm-page.html",
-      "/posts/2024-08-16_kubo_3sho.html",
       "/posts/2024-08-16_gauss_sec3_param.html",
+      "/posts/2024-08-16_kubo_3sho.html",
       "/posts/2024-08-14_gauss_sec3.html",
       "/posts/2024-06-17_sqlcontest-01-10.html",
       "/posts/2024-06-07_ahc028memo.html",
@@ -16,8 +16,8 @@
       "/posts/2024-05-09_bcewithlogitsloss_check.html",
       "/posts/make_grid_example.html",
       "/posts/2024-05-03_ahc032memo.html",
-      "/posts/2024-05-01-chokudaisearch.html",
-      "/posts/cudacheck.html"
+      "/posts/cudacheck.html",
+      "/posts/2024-05-01-chokudaisearch.html"
     ]
   }
 ]
