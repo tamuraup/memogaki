@@ -1,6 +1,6 @@
 ---
-title: "雑なメモ置き場"
-description: "メモ書きなので間違っていることもあります(保険)"
+title: "めもちょう"
+description: "ChatGPT に聞いたことや雑なメモを置いています"
 
 listing:
   contents: posts
