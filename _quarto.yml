@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "雑なメモ置き場"
+  title: "めもちょう"
   navbar:
     right:
       - about.qmd
