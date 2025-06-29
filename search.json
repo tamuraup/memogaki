@@ -284,14 +284,14 @@
     "href": "posts/2025-06-29_toke-nyumon-27-01.html",
     "title": "統計入門27. 時系列データ分析-1",
     "section": "",
-    "text": "※このレポートは OpenAI の ChatGPT によって自動生成されました。"
+    "text": "Note\n\n\n\nこのレポートは OpenAI の ChatGPT によって自動生成されました。"
   },
   {
     "objectID": "posts/2025-06-29_toke-nyumon-27-01.html#弱定常過程と強定常過程の違い",
     "href": "posts/2025-06-29_toke-nyumon-27-01.html#弱定常過程と強定常過程の違い",
     "title": "統計入門27. 時系列データ分析-1",
     "section": "1. 弱定常過程と強定常過程の違い",
-    "text": "1. 弱定常過程と強定常過程の違い\n\n\n\n\n\n\n\n\n種類\n定義\n特徴\n\n\n\n\n弱定常\n平均・分散・共分散が時間によらず一定\n共分散が**ラグ（時間差）**のみに依存\n\n\n強定常\nあらゆる時点の同時分布が、時刻のシフトに対して不変\n分布の形が時間で変わらない必要あり\n\n\n\n\n✅ ノイズの合成の分布が変わると、強定常にならない ✅ 正規分布ノイズなら、線形結合しても形が変わらず → 強定常に近い"
+    "text": "1. 弱定常過程と強定常過程の違い\n\n\n\n\n\n\n\n\n種類\n定義\n特徴\n\n\n\n\n弱定常\n平均・分散・共分散が時間によらず一定\n共分散が**ラグ（時間差）**のみに依存\n\n\n強定常\nあらゆる時点の同時分布が、時刻のシフトに対して不変\n分布の形が時間で変わらない必要あり\n\n\n\n\n✅ ノイズの合成の分布が変わると、強定常にならない\n✅ 正規分布ノイズなら、線形結合しても形が変わらず → 強定常に近い"
   },
   {
     "objectID": "posts/2025-06-29_toke-nyumon-27-01.html#arma-と-arima-の違い",
@@ -319,7 +319,7 @@
     "href": "posts/2025-06-29_toke-nyumon-27-01.html#自己相関係数は何に対して計算する",
     "title": "統計入門27. 時系列データ分析-1",
     "section": "5. 自己相関係数は何に対して計算する？",
-    "text": "5. 自己相関係数は何に対して計算する？\n\n✅ ACF は「実際の時系列データ」に対して計算 → 各ラグにおいて、データがどれだけ自分と似ているか（自己相関）を測る"
+    "text": "5. 自己相関係数は何に対して計算する？\n\n✅ ACF は「実際の時系列データ」に対して計算\n→ 各ラグにおいて、データがどれだけ自分と似ているか（自己相関）を測る"
   },
   {
     "objectID": "posts/2025-06-29_toke-nyumon-27-01.html#ar-モデルの次数の決め方pacf-を使う",
@@ -424,6 +424,6 @@
     "href": "index.html",
     "title": "めもちょう",
     "section": "",
-    "text": "統計入門27. 時系列データ分析-1\n\n\n\n\n\n\n\n\n2025 年 06 月 29 日\n\n\n\n\n\n\n\n\n\n\n\n\nPython でスキャン画像の回転補正をやってみる\n\n\n\nPython\n\nimage\n\n\n\n\n\n\n\n\n\n2025 年 03 月 25 日\n\n\n\n\n\n\n\n\n\n\n\n\n時系列データの lag, step の作成操作\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2025 年 02 月 05 日\n\n\n\n\n\n\n\n\n\n\n\n\nRust WebAssembly + React (Vite) で作成したサイトを GitLab Pages へデプロイ\n\n\n\nGitLab\n\nRust\n\nwasm\n\n\n\n\n\n\n\n\n\n2024 年 09 月 17 日\n\n\n\n\n\n\n\n\n\n\n\n\nガウス過程と機械学習 3章 ガウス過程回帰のパラメータ推定\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 08 月 16 日\n\n\n\n\n\n\n\n\n\n\n\n\nデータ解析のための統計モデリング入門 3章のポアソン回帰\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 08 月 16 日\n\n\n\n\n\n\n\n\n\n\n\n\nガウス過程と機械学習 3章 ガウス過程回帰\n\n\n\nml\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 08 月 14 日\n\n\n\n\n\n\n\n\n\n\n\n\nSQLコンテストの問題 4 を解く(第 1〜10 回)\n\n\n\nSQL\n\n\n\n\n\n\n\n\n\n2024 年 06 月 17 日\n\n\n\n\n\n\n\n\n\n\n\n\nAHC028 解説放送メモ\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 06 月 07 日\n\n\n\n\n\n\n\n\n\n\n\n\nnumpy, pandas.DataFrame で多数決をとる\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 12 日\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch 学習結果の再現性確保\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 11 日\n\n\n\n\n\n\n\n\n\n\n\n\nBCEWithLogitsLoss の確認\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 09 日\n\n\n\n\n\n\n\n\n\n\n\n\n画像グリッド描画サンプル\n\n\n\nnotebook\n\nimage\n\n\n\n\n\n\n\n\n\n2024 年 05 月 04 日\n\n\n\n\n\n\n\n\n\n\n\n\nAHC032 解説放送メモ\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 05 月 03 日\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\nNo matching items\nCopyrightCopyright tamuraup. 2024. All Rights Reserved"
+    "text": "統計入門27. 時系列データ分析-1\n\n\n\n統計入門\n\n時系列分析\n\n\n\n\n\n\n\n\n\n2025 年 06 月 29 日\n\n\n\n\n\n\n\n\n\n\n\n\nPython でスキャン画像の回転補正をやってみる\n\n\n\nPython\n\nimage\n\n\n\n\n\n\n\n\n\n2025 年 03 月 25 日\n\n\n\n\n\n\n\n\n\n\n\n\n時系列データの lag, step の作成操作\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2025 年 02 月 05 日\n\n\n\n\n\n\n\n\n\n\n\n\nRust WebAssembly + React (Vite) で作成したサイトを GitLab Pages へデプロイ\n\n\n\nGitLab\n\nRust\n\nwasm\n\n\n\n\n\n\n\n\n\n2024 年 09 月 17 日\n\n\n\n\n\n\n\n\n\n\n\n\nガウス過程と機械学習 3章 ガウス過程回帰のパラメータ推定\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 08 月 16 日\n\n\n\n\n\n\n\n\n\n\n\n\nデータ解析のための統計モデリング入門 3章のポアソン回帰\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 08 月 16 日\n\n\n\n\n\n\n\n\n\n\n\n\nガウス過程と機械学習 3章 ガウス過程回帰\n\n\n\nml\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 08 月 14 日\n\n\n\n\n\n\n\n\n\n\n\n\nSQLコンテストの問題 4 を解く(第 1〜10 回)\n\n\n\nSQL\n\n\n\n\n\n\n\n\n\n2024 年 06 月 17 日\n\n\n\n\n\n\n\n\n\n\n\n\nAHC028 解説放送メモ\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 06 月 07 日\n\n\n\n\n\n\n\n\n\n\n\n\nnumpy, pandas.DataFrame で多数決をとる\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 12 日\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch 学習結果の再現性確保\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 11 日\n\n\n\n\n\n\n\n\n\n\n\n\nBCEWithLogitsLoss の確認\n\n\n\nml\n\n\n\n\n\n\n\n\n\n2024 年 05 月 09 日\n\n\n\n\n\n\n\n\n\n\n\n\n画像グリッド描画サンプル\n\n\n\nnotebook\n\nimage\n\n\n\n\n\n\n\n\n\n2024 年 05 月 04 日\n\n\n\n\n\n\n\n\n\n\n\n\nAHC032 解説放送メモ\n\n\n\nahc\n\n\n\n\n\n\n\n\n\n2024 年 05 月 03 日\n\n\n\n\n\n\n\n\n\n\n\n\ngpu check\n\n\n\nnotebook\n\n\n\n\n\n\n\n\n\n2024 年 05 月 01 日\n\n\n\n\n\nNo matching items\nCopyrightCopyright tamuraup. 2024. All Rights Reserved"
   }
 ]
