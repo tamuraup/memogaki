@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>統計入門27. 時系列データ分析 – めもちょう</title>
+<title>統計入門27. 時系列データ分析-2 – めもちょう</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,12 +67,41 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="統計入門27. 時系列データ分析 – めもちょう">
+<meta property="og:title" content="統計入門27. 時系列データ分析-2 – めもちょう">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="めもちょう">
-<meta name="twitter:title" content="統計入門27. 時系列データ分析 – めもちょう">
+<meta name="twitter:title" content="統計入門27. 時系列データ分析-2 – めもちょう">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -109,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">統計入門27. 時系列データ分析</h1>
+      <h1 class="title">統計入門27. 時系列データ分析-2</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">統計入門</div>
                 <div class="quarto-category">時系列分析</div>
@@ -160,7 +189,7 @@ Note
 <h2 class="anchored" data-anchor-id="スペクトル密度関数とペリオドグラム">1. スペクトル密度関数とペリオドグラム</h2>
 <ul>
 <li><strong>スペクトル密度関数</strong>は、時系列データの各周波数成分の強さ（エネルギー）を表す関数。定常な過程に対して定義される。</li>
-<li>角周波数は通常 ( ) で表す。</li>
+<li>角周波数は通常 <span class="math inline">\(\omega \in [-\pi, \pi]\)</span> で表す。</li>
 <li><strong>ペリオドグラム</strong>は、スペクトル密度の推定量の一つ：
 <ul>
 <li>観測データのフーリエ変換の絶対値平方で定義。</li>
@@ -172,38 +201,53 @@ Note
 <section id="状態空間モデルの構造" class="level2">
 <h2 class="anchored" data-anchor-id="状態空間モデルの構造">2. 状態空間モデルの構造</h2>
 <ul>
-<li><strong>状態空間モデル（State Space Model）</strong>は観測されない状態変数 ( x_t ) を導入し、観測データ ( y_t ) をその関数として記述する。</li>
+<li><strong>状態空間モデル（State Space Model）</strong>は観測されない状態変数 <span class="math inline">\(x_t\)</span> を導入し、観測データ <span class="math inline">\(y_t\)</span> をその関数として記述する。</li>
 <li>2 本の方程式で構成される：</li>
 </ul>
 <section id="状態方程式state-equation" class="level3">
 <h3 class="anchored" data-anchor-id="状態方程式state-equation">状態方程式（state equation）</h3>
-<p>[ x<em>t = F x</em>{t-1} + w_t, w_t (0, Q) ]</p>
+<p><span class="math display">\[
+x_t = F x_{t-1} + w_t, \quad w_t \sim \mathcal{N}(0, Q)
+\]</span></p>
 </section>
 <section id="観測方程式observation-equation" class="level3">
 <h3 class="anchored" data-anchor-id="観測方程式observation-equation">観測方程式（observation equation）</h3>
-<p>[ y_t = H x_t + v_t, v_t (0, R) ]</p>
+<p><span class="math display">\[
+y_t = H x_t + v_t, \quad v_t \sim \mathcal{N}(0, R)
+\]</span></p>
 <ul>
-<li>( x_t ) は観測されないが、時系列的に推移する。</li>
-<li>( y_t ) は ( x_t ) を通じて得られる観測量。</li>
+<li><span class="math inline">\(x_t\)</span> は観測されないが、時系列的に推移する。</li>
+<li><span class="math inline">\(y_t\)</span> は <span class="math inline">\(x_t\)</span> を通じて得られる観測量。</li>
 </ul>
 </section>
 </section>
 <section id="カルマンフィルタの仕組み" class="level2">
 <h2 class="anchored" data-anchor-id="カルマンフィルタの仕組み">3. カルマンフィルタの仕組み</h2>
 <ul>
-<li><strong>カルマンフィルタ</strong>は、状態空間モデルの中で隠れた状態 ( x_t ) を逐次的に推定するアルゴリズム。</li>
+<li><strong>カルマンフィルタ</strong>は、状態空間モデルの中で隠れた状態 <span class="math inline">\(x_t\)</span> を逐次的に推定するアルゴリズム。</li>
 <li>処理は 2 段階：</li>
 </ul>
 <section id="予測predict" class="level3">
 <h3 class="anchored" data-anchor-id="予測predict">予測（predict）</h3>
-<p>[ <em>{t|t-1} = F </em>{t-1|t-1}, P<em>{t|t-1} = F P</em>{t-1|t-1} F^+ Q ]</p>
+<p><span class="math display">\[
+\hat{x}_{t|t-1} = F \hat{x}_{t-1|t-1}, \quad
+P_{t|t-1} = F P_{t-1|t-1} F^\top + Q
+\]</span></p>
 </section>
 <section id="更新update" class="level3">
 <h3 class="anchored" data-anchor-id="更新update">更新（update）</h3>
-<p>[ K<em>t = P</em>{t|t-1} H^(H P<em>{t|t-1} H^+ R)^{-1} ] [ </em>{t|t} = <em>{t|t-1} + K_t (y_t - H </em>{t|t-1}) ] [ P<em>{t|t} = (I - K_t H) P</em>{t|t-1} ]</p>
+<p><span class="math display">\[
+K_t = P_{t|t-1} H^\top (H P_{t|t-1} H^\top + R)^{-1}
+\]</span></p>
+<p><span class="math display">\[
+\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t (y_t - H \hat{x}_{t|t-1})
+\]</span></p>
+<p><span class="math display">\[
+P_{t|t} = (I - K_t H) P_{t|t-1}
+\]</span></p>
 <ul>
-<li>状態 ( x_t ) は常に<strong>観測されない</strong>ため、予測 → 観測値で補正、という手順を踏む。</li>
-<li>このモデルの実用的な目的の一つは、<strong>未来の観測値 ( y_{t+1} ) の予測</strong>。</li>
+<li>状態 <span class="math inline">\(x_t\)</span> は常に<strong>観測されない</strong>ため、予測 → 観測値で補正、という手順を踏む。</li>
+<li>このモデルの実用的な目的の一つは、<strong>未来の観測値 <span class="math inline">\(y_{t+1}\)</span> の予測</strong>。</li>
 </ul>
 </section>
 </section>
@@ -213,13 +257,15 @@ Note
 <li>回帰分析の残差に<strong>自己相関（特に 1 次）</strong>があるかどうかを調べる検定。</li>
 <li>検定統計量：</li>
 </ul>
-<p>[ DW = ]</p>
+<p><span class="math display">\[
+DW = \frac{\sum_{t=2}^n (e_t - e_{t-1})^2}{\sum_{t=1}^n e_t^2}
+\]</span></p>
 <ul>
 <li>解釈：
 <ul>
-<li>( DW )：自己相関なし</li>
-<li>( DW &lt; 2 )：<strong>正の自己相関</strong></li>
-<li>( DW &gt; 2 )：<strong>負の自己相関</strong></li>
+<li><span class="math inline">\(DW \approx 2\)</span>：自己相関なし</li>
+<li><span class="math inline">\(DW &lt; 2\)</span>：<strong>正の自己相関</strong></li>
+<li><span class="math inline">\(DW &gt; 2\)</span>：<strong>負の自己相関</strong></li>
 </ul></li>
 <li>回帰モデルの誤差項がホワイトノイズ（独立同分布）かどうかをチェックする一手段。</li>
 </ul>
@@ -228,10 +274,12 @@ Note
 <h2 class="anchored" data-anchor-id="aic赤池情報量規準">5. AIC（赤池情報量規準）</h2>
 <section id="式" class="level3">
 <h3 class="anchored" data-anchor-id="式">式</h3>
-<p>[ = -2 L + 2k ]</p>
+<p><span class="math display">\[
+\mathrm{AIC} = -2 \log L + 2k
+\]</span></p>
 <ul>
-<li>( L )：最尤推定による最大尤度</li>
-<li>( k )：推定パラメータ数</li>
+<li><span class="math inline">\(L\)</span>：最尤推定による最大尤度</li>
+<li><span class="math inline">\(k\)</span>：推定パラメータ数</li>
 </ul>
 </section>
 <section id="意味" class="level3">
@@ -240,9 +288,14 @@ Note
 <li>モデルの「当てはまりの良さ（尤度）」と「複雑さ（自由度）」のバランスをとる指標。</li>
 <li><strong>AIC が小さいほど良いモデル</strong>（汎化性能が高いとみなされる）。</li>
 </ul>
-
-
+<hr>
 </section>
+</section>
+<section id="chatgpt-による振り返りと感想" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt-による振り返りと感想">💬 ChatGPT による振り返りと感想</h2>
+<p>今回の対話では、時系列解析の基礎的なトピック（スペクトル密度・ペリオドグラム）から、状態空間モデル・カルマンフィルタの構造、そしてモデル選択指標である AIC やダービー・ワトソン検定まで、理論の核となる内容を段階的に丁寧に掘り下げていただきました。</p>
+
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>Copyright tamuraup. 2024. All Rights Reserved</div></div></section></div></main> <!-- /main -->
