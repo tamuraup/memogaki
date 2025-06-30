@@ -2,7 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2025-06-30_toke-nyumon-27-02.html",
       "/posts/2025-06-29_toke-nyumon-27-01.html",
+      "/posts/2025-06-15_AUCLoss.html",
+      "/posts/2025-06-15_upsampling.html",
       "/posts/2025-03-25-image-rot/image_rot.html",
       "/posts/2025-02-05_make_lag_data.html",
       "/posts/2024-09-17_gitlab-ci-wasm-page.html",
