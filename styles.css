@@ -1,20 +1,25 @@
 /* css styles */
 @media (min-width: 1200px) {
   body.fullcontent:not(.floating):not(.docked) .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 5fr [page-start page-start-inset] 35px [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(
+    grid-template-columns:
+      [screen-start] 1.5em [screen-start-inset] 5fr [page-start page-start-inset] 35px [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(
         500px,
         calc(1050px - 3em)
-      ) [body-content-end] 1.5em [body-end] 35px [body-end-outset] 35px [page-end-inset] 35px [page-end] 5fr [screen-end-inset] 1.5em [screen-end];
+      )
+      [body-content-end] 1.5em [body-end] 35px [body-end-outset] 35px [page-end-inset] 35px [page-end] 5fr [screen-end-inset] 1.5em [screen-end];
   }
 
   body .page-columns {
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 5fr [page-start page-start-inset] 35px [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(
+    grid-template-columns:
+      [screen-start] 1.5em [screen-start-inset] 5fr [page-start page-start-inset] 35px [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(
         500px,
         calc(1050px - 3em)
-      ) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(
+      )
+      [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(
         75px,
         145px
-      ) [page-end-inset] 35px [page-end] 5fr [screen-end-inset] 1.5em [screen-end];
+      )
+      [page-end-inset] 35px [page-end] 5fr [screen-end-inset] 1.5em [screen-end];
   }
 }
 
@@ -48,4 +53,16 @@ table.dataframe td[data-quarto-table-cell-role="th"] {
 }
 table.dataframe td {
   padding-left: 5px;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+  margin-top: 3rem;
+}
+
+h2,
+.h2 {
+  border-bottom: 1px solid #20c997;
 }
