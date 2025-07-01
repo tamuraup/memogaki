@@ -195,7 +195,6 @@ Note
 <li>感度分析やラグランジュ緩和との接続点になる</li>
 <li>双対問題のほうが解きやすい場合もある</li>
 </ul>
-<hr>
 </section>
 <section id="製造計画の例題" class="level2">
 <h2 class="anchored" data-anchor-id="製造計画の例題">2. 製造計画の例題</h2>
@@ -216,21 +215,21 @@ Note
 <li><span class="math inline">\(x_2\)</span>：製品 B の生産数</li>
 <li>利益：製品 A は 3 万円、製品 B は 2 万円</li>
 </ul>
-<hr>
 </section>
-<section id="双対問題資源供給者の視点" class="level3">
-<h3 class="anchored" data-anchor-id="双対問題資源供給者の視点">📗 双対問題（資源供給者の視点）</h3>
-<p>資源 1（作業時間）、資源 2（材料）にそれぞれ価格 <span class="math inline">\(y_1\)</span>, <span class="math inline">\(y_2\)</span> をつけることで、 製造者に製造を諦めさせたい。目的はこの資源コストを最小にすること。</p>
+<section id="双対問題資源の価値評価の視点" class="level3">
+<h3 class="anchored" data-anchor-id="双対問題資源の価値評価の視点">📗 双対問題（資源の価値評価の視点）</h3>
+<p>資源 1（作業時間）、資源 2（材料）に対して、それぞれ「どれくらい価値（価格）があるか」を考えます。 この価値を設定することで、製品を作るときにかかる資源コストが製品の利益を上回るようにします。 双対問題の目的は、こうした資源の価値の合計をできるだけ小さくすることです。</p>
 <p><span class="math display">\[
 \begin{align*}
 \text{minimize} \quad &amp; 4y_1 + 5y_2 \\
 \text{subject to} \quad
-&amp; y_1 + 2y_2 \ge 3 \quad \text{(製品Aが元取れないように)} \\
-&amp; y_1 + y_2 \ge 2 \quad \text{(製品Bが元取れないように)} \\
+&amp; y_1 + 2y_2 \ge 3 \quad \text{(製品Aの利益を資源コストが超えない)} \\
+&amp; y_1 + y_2 \ge 2 \quad \text{(製品Bの利益を資源コストが超えない)} \\
 &amp; y_1 \ge 0,\quad y_2 \ge 0
 \end{align*}
 \]</span></p>
 <hr>
+<p>この問題は、資源をどう評価するか（どれだけ価値があるか）を考えることで、製造計画の「採算ライン」を示しています。 つまり、資源の価値を決めることが、製品の利益と資源コストのバランスをとる鍵になる、という視点です。</p>
 </section>
 </section>
 <section id="双対問題の複数の解釈" class="level2">
@@ -271,7 +270,6 @@ Note
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
 <section id="相補性条件主問題と双対問題の接続" class="level2">
 <h2 class="anchored" data-anchor-id="相補性条件主問題と双対問題の接続">4. 相補性条件：主問題と双対問題の接続</h2>
@@ -292,7 +290,6 @@ Note
 <li>主問題の変数が正なら → 双対制約はギリギリ満たされている（＝号）</li>
 <li>主問題の変数がゼロなら → 双対制約は緩んでいる（＞）</li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="直感的解釈の補足" class="level2">
@@ -310,7 +307,6 @@ y_1 + 2y_2 &gt; 3
 y_1 + 2y_2 = 3
 \]</span></p>
 <p>でなければ相補性条件が破れる。</p>
-<hr>
 </section>
 <section id="相補性条件のまとめ表" class="level2">
 <h2 class="anchored" data-anchor-id="相補性条件のまとめ表">6. 相補性条件のまとめ表</h2>
@@ -350,7 +346,6 @@ y_1 + 2y_2 = 3
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
 <section id="おわりに" class="level2">
 <h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
